@@ -4,6 +4,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import FunctionTransformer
 import numpy as np
 import pandas as pd
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+import config
+
+sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(config.spotify['client_id'],
+                                                                        config.spotify['client_secret']))
 
 def get_album_songs(uri_info):
     uri = []
@@ -69,6 +75,19 @@ def get_track_info(df):
     
     return df2
 
+def popularity(df):
+    empty = []
+    for i in df['uri']:
+            series_track = pd.Series(sp.track(i))
+            empty.append(series_track)
+    df2 = pd.DataFrame(empty)
+    return df2
+
+def add_popularity(df):
+    pop = popularity(df)
+    df['popularity'] = pop['popularity']
+    return df.head()
+
 def single_reg(model, X_train, X_test, y_train, y_test):
     model.fit(X_train, y_train)
     y_hat_train = model.predict(X_train)
@@ -82,6 +101,7 @@ def single_reg(model, X_train, X_test, y_train, y_test):
     return model
 
 def log_transform(x):
+    x = x+1
     return np.log(x)
 transformer = FunctionTransformer(log_transform)
 
