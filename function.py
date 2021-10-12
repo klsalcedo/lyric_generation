@@ -107,12 +107,15 @@ transformer = FunctionTransformer(log_transform)
 
 
 def full_reg(model, X_train, X_test, y_train, y_test):
-    pipeline = Pipeline([('transform', transformer), ('ss', StandardScaler()), ('regressor', model)])
-    
-    X_train = X_train.values.reshape(-1,1)
-    X_test = X_test.values.reshape(-1,1)
+    pipeline = Pipeline([('ss', StandardScaler()), ('regressor', model)])
 
     pipeline.fit(X_train, y_train)
-    pipeline.score(X_test, y_test)
+    y_hat_train = pipeline.predict(X_train)
+    y_hat_test = pipeline.predict(X_test)
+    
+    train_mse = mean_squared_error(y_train, y_hat_train)
+    test_mse = mean_squared_error(y_test, y_hat_test)
+    print('Train Root Mean Square Error:', train_mse**0.5)
+    print('Test Root Mean Square Error:', test_mse**0.5)
     
     return model
