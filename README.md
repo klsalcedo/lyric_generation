@@ -2,7 +2,7 @@
 Author: Katarina Salcedo
 
 # Motivation
-On average it take anywhere from 3-30 months to complete an album. My goal is to come up with a solution to streamline this process and assist with the creation of new songs/lyrics that can be used in upcoming albums. Since each artist is unique - We will focus on a single artist, in this case the Red Hot Chili Peppers (RHCP), and use deep learning to generate new lyrics that match the style and voice of that particular artist. We will also use machine learning to predict the popularity of the song(s) given the lyrics.
+On average it take anywhere from 3-30 months to complete an album. My goal is to come up with a solution to streamline this process and assist with the creation of new songs/lyrics that can be used in upcoming albums. Since each artist is unique - we will focus on a single artist, in this case the Red Hot Chili Peppers (RHCP), and use deep learning to generate new lyrics that match the style and voice of that particular artist. We will also use machine learning to predict the popularity of the song(s) given the lyrics.
 
 # Data
 A dataset was synthesized using Spotify's API along with Genius Lyric API. It contained 118 songs from all 10 of the RHCP's albums and had information on audio features, popularity and song lyrics. The audio features include: danceability, energy, key, loudness, speechiness, acousticness, liveness, instrumentalness, valence and tempo. 
