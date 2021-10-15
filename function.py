@@ -88,6 +88,14 @@ def add_popularity(df):
     df['popularity'] = pop['popularity']
     return df.head()
 
+def lyrics_to_df(data, df):
+    for i in range(len(data['tracks'])):
+        album = data['name']
+        title = data['tracks'][i]['song']['title']
+        lyric = data['tracks'][i]['song']['lyrics']
+        df = df.append({'track': title,'album': album, 'lyrics': lyric}, ignore_index=True)
+    return df
+
 def single_reg(model, X_train, X_test, y_train, y_test):
     model.fit(X_train, y_train)
     y_hat_train = model.predict(X_train)
