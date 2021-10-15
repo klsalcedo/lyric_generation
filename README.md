@@ -34,7 +34,7 @@ Based on these lyrics, here are the predicted audio features and popularity:
 ![Screen Shot 2021-10-14 at 11 20 16 PM](https://user-images.githubusercontent.com/81720110/137441378-a6ad0402-d2e9-442e-9a55-59a569a46010.png)
 
 # Conclusions 
-Currently, the generated lyrics will produce a song with a popularity score of 54. For reference, the highest score the Red Hot Chili Peppers have recieved is 73, with a majority of their scores aroud the 50-65 range. 
+Currently, the generated lyrics will produce a song with a popularity score of 54. For reference, the highest score the Red Hot Chili Peppers have recieved is 73, with a majority of their scores around the 50-65 range. 
 
 # Next Steps
-Future work would include expanding the dataset to include all top songs from a particular genre. Increasing the size of the dataset would also improve upon the modeling and allow for the creation of a more general text preditor. To improve upon the language model, using pretrained networks could produce a model that is better at predicting longer sequences and deepen understanding of the given text. 
+Future work would include expanding the dataset to include all top songs from a particular genre. Increasing the size of the dataset would also improve upon the modeling and allow for the creation of a more general text preditor. To improve upon the language model, using pretrained networks could produce a model that is better at predicting longer sequences. 
